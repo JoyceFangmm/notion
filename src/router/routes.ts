@@ -9,7 +9,19 @@ const routes: RouteRecordRaw[] = [
   },
   {
     path: '/',
-    redirect: '/404',
+    redirect: '/home',
+  },
+  {
+    path: '/home',
+    name: 'home',
+    component: () => import(/* webpackChunkName: "home" */ '@/views/Home.vue'),
+    meta: { title: 'home', keepAlive: true },
+  },
+  {
+    path: '/detail',
+    name: 'detail',
+    component: () => import(/* webpackChunkName: "detail" */ '@/views/Detail.vue'),
+    meta: { title: 'detail', keepAlive: true },
   },
 ]
 

@@ -60,7 +60,7 @@ export default defineConfig(({ mode, command }) => {
     },
     build: {
       target: 'es2015', // modules
-      outDir: 'dist',
+      outDir: 'docs',
       chunkSizeWarningLimit: 1500,
       sourcemap: env.VITE_SOURCE_MAP === 'true',
     },
