@@ -1,1 +1,0 @@
-System.register(["./index-legacy-a6e0f331.js"],(function(e,t){"use strict";var n,u,i,s,c,r;return{setters:[e=>{n=e.d,u=e.o,i=e.c,s=e.a,c=e.b,r=e.u}],execute:function(){e("default",n({__name:"Home",setup(e){const t=r();function n(){t.push({name:"detail"})}return(e,t)=>(u(),i("div",null,[s(" home 2024-03-13 16:42 "),c("div",{onClick:n},"跳转到detail页面")]))}}))}}}));

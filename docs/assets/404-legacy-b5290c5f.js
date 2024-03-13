@@ -1,1 +1,0 @@
-System.register(["./index-legacy-a6e0f331.js"],(function(e,t){"use strict";var n,r,u;return{setters:[e=>{n=e._,r=e.o,u=e.c}],execute:function(){e("default",n({},[["render",function(e,t){return r(),u("div",null," 404报错页面：2024-03-13 16:42 ")}]]))}}}));

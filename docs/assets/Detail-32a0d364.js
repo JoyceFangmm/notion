@@ -1,0 +1,1 @@
+import{d as t,o as a,c as n,a as s,b as c,u as r}from"./index-ca5c8e6a.js";const p=t({__name:"Detail",setup(u){const e=r();function o(){e.push({name:"home"})}return(m,i)=>(a(),n("div",null,[s(" detail 2024-03-13 17:00 "),c("div",{onClick:o},"跳转到Home页面")]))}});export{p as default};
