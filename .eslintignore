@@ -1,0 +1,8 @@
+# https://eslint.org/docs/latest/use/configure/ignore#the-eslintignore-file
+node_modules
+.DS_Store
+dist
+dist-ssr
+*.local
+.vscode
+index.html
