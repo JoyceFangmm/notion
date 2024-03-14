@@ -1,9 +1,14 @@
 import legacyPlugin from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
+// eslint-disable-next-line import/no-unresolved
+import AutoImport from 'unplugin-auto-import/vite'
+// eslint-disable-next-line import/no-unresolved
+import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
+// eslint-disable-next-line import/no-unresolved
+import Components from 'unplugin-vue-components/vite'
 import { fileURLToPath, URL } from 'url'
 import { defineConfig, loadEnv } from 'vite'
-import { createStyleImportPlugin } from 'vite-plugin-style-import'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -38,11 +43,14 @@ export default defineConfig(({ mode, command }) => {
       vue(),
       ...pluginList,
       legacyPlugin({
-        targets: ['chrome 50', 'IOS >= 10'], // 需要兼容的目标列表，可以设置多个；分别是安卓和ios最低兼容版本
+        targets: ['defaults', 'ie >= 11', 'chrome >= 50'], // 需要兼容的目标列表，可以设置多个；
         modernPolyfills: ['es.promise.finally', 'es.array.flat', 'es.array.flat-map'],
       }),
-      createStyleImportPlugin({
-        //按需引入样式进行打包
+      AutoImport({
+        resolvers: [ElementPlusResolver()],
+      }),
+      Components({
+        resolvers: [ElementPlusResolver()],
       }),
     ],
     resolve: {
