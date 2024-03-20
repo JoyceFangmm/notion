@@ -35,6 +35,16 @@ import 'element-plus/theme-chalk/display.css'
 
 import { useRouter } from 'vue-router'
 
+/** 将资源引入为字符串
+ * 资源可以使用 ?raw 后缀声明作为字符串引入
+ * vite官网地址：https://vitejs.cn/guide/assets.html#explicit-url-imports
+ */
+// eslint-disable-next-line import/no-unresolved
+import mdExample from './Example.md?raw'
+
+console.log('房志梅')
+console.log(mdExample)
+
 const $router = useRouter()
 function jumpDetail() {
   $router.push({

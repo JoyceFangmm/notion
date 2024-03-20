@@ -4,3 +4,8 @@ declare interface ViteEnv {
   VITE_ROUTE_PREFIX: string
   VITE_PUBLIC_PATH: string
 }
+
+declare module '*.md' {
+  const content: string
+  export default content
+}

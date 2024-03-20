@@ -1,12 +1,11 @@
+/* eslint-disable import/no-unresolved */
 import legacyPlugin from '@vitejs/plugin-legacy'
 import vue from '@vitejs/plugin-vue'
 import esbuild from 'rollup-plugin-esbuild'
-// eslint-disable-next-line import/no-unresolved
 import AutoImport from 'unplugin-auto-import/vite'
-// eslint-disable-next-line import/no-unresolved
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers'
-// eslint-disable-next-line import/no-unresolved
 import Components from 'unplugin-vue-components/vite'
+import Markdown from 'unplugin-vue-markdown/vite'
 import { fileURLToPath, URL } from 'url'
 import { defineConfig, loadEnv } from 'vite'
 
@@ -40,7 +39,10 @@ export default defineConfig(({ mode, command }) => {
       'process.env.VITE_BUILD_MODE': `"${mode}"`,
     },
     plugins: [
-      vue(),
+      vue({
+        include: [/\.vue$/, /\.md$/],
+      }),
+      Markdown({}),
       ...pluginList,
       legacyPlugin({
         targets: ['defaults', 'ie >= 11', 'chrome >= 50'], // 需要兼容的目标列表，可以设置多个；
