@@ -2,10 +2,8 @@
   <div class="dark">
     <el-row :justify="'center'">
       <el-col :xs="24" :sm="24" :md="{ span: 16, offset: 2 }" :lg="{ span: 16, offset: 2 }"
-        ><div class="grid-content ep-bg-purple-light">
-          <div class="box">我是内容</div>
-        </div></el-col
-      >
+        ><div class="grid-content"> <Example /> </div
+      ></el-col>
       <el-col :xs="24" :sm="24" :md="6" :lg="6" class="hidden-sm-and-down">
         <div class="grid-content ep-bg-purple"></div>
       </el-col>
@@ -35,6 +33,9 @@ import 'element-plus/theme-chalk/display.css'
 
 import { useRouter } from 'vue-router'
 
+// eslint-disable-next-line import/no-unresolved
+import Example2 from './Adding.html?raw'
+import Example from './Example.md'
 /** 将资源引入为字符串
  * 资源可以使用 ?raw 后缀声明作为字符串引入
  * vite官网地址：https://vitejs.cn/guide/assets.html#explicit-url-imports

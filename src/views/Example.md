@@ -1,19 +1,29 @@
 # Adding HTTP response headers to a Netlify static website
 
-date: 2021/03/25 slug: adding-http-response-headers-to-a-netlify-static-website status: Published tags: Jekyll, Website summary: Eros vel condimentum elementum, ipsum ex ultricies neque, et consequat risus neque quis felis. Praesent ut lectus hendrerit sem eleifend cursus. Nunc eget pulvinar nisi. Duis vel orci nec mauris lacinia rutrum. type: Post
+date: 2021/03/25
+slug: adding-http-response-headers-to-a-netlify-static-website
+status: Published
+tags: Jekyll, Website
+summary: Eros vel condimentum elementum, ipsum ex ultricies neque, et consequat risus neque quis felis. Praesent ut lectus hendrerit sem eleifend cursus. Nunc eget pulvinar nisi. Duis vel orci nec mauris lacinia rutrum.
+type: Post
 
-Lorem ipsum dolor **amet** tousled ~~viral~~ art party _blue_ bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.
+Lorem ipsum dolor **amet** tousled ~~viral~~ art party *blue* bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.
 
 - 测试
-  # 表
-- [ ] 1、测试
-- [x] 2、内容
+
+    # 表
+
+- [ ]  1、测试
+- [x]  2、内容
 
 结果
 
 - 终于
-  终于1
-  终于2
+
+    终于1
+
+    终于2
+
 
 结果2
 
@@ -44,7 +54,7 @@ const BLOG = {
   socialLink: 'https://twitter.com/craigaryhart',
   seo: {
     keywords: ['Blog', 'Website', 'Notion'],
-    googleSiteVerification: '', // Remove the value or replace it with your own google site verification code
+    googleSiteVerification: '' // Remove the value or replace it with your own google site verification code
   },
   notionPageId: process.env.NOTION_PAGE_ID, // DO NOT CHANGE THIS！！！
 }
