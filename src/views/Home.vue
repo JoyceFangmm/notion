@@ -1,9 +1,9 @@
 <template>
   <div class="dark">
     <el-row :justify="'center'">
-      <el-col :xs="24" :sm="24" :md="{ span: 16, offset: 2 }" :lg="{ span: 16, offset: 2 }"
-        ><div class="grid-content"> <Example /> </div
-      ></el-col>
+      <el-col :xs="24" :sm="24" :md="{ span: 16, offset: 2 }" :lg="{ span: 16, offset: 2 }">
+        <div class="grid-content ep-bg-purple"> 我是内容 </div>
+      </el-col>
       <el-col :xs="24" :sm="24" :md="6" :lg="6" class="hidden-sm-and-down">
         <div class="grid-content ep-bg-purple"></div>
       </el-col>
@@ -12,39 +12,9 @@
 </template>
 
 <script setup lang="ts">
-// xs	<768px 响应式栅格数或者栅格属性对象
-// sm	≥768px 响应式栅格数或者栅格属性对象
-// md	≥992px 响应式栅格数或者栅格属性对象
-// lg	≥1200px 响应式栅格数或者栅格属性对象
-// xl	≥1920px 响应式栅格数或者栅格属性对象
-
-// hidden-xs-only - 当视口在 xs 尺寸时隐藏
-// hidden-sm-only - 当视口在 sm 尺寸时隐藏
-// hidden-sm-and-down - 当视口在 sm 及以下尺寸时隐藏
-// hidden-sm-and-up - 当视口在 sm 及以上尺寸时隐藏
-// hidden-md-only - 当视口在 md 尺寸时隐藏
-// hidden-md-and-down - 当视口在 md 及以下尺寸时隐藏
-// hidden-md-and-up - 当视口在 md 及以上尺寸时隐藏
-// hidden-lg-only - 当视口在 lg 尺寸时隐藏
-// hidden-lg-and-down - 当视口在 lg 及以下尺寸时隐藏
-// hidden-lg-and-up - 当视口在 lg 及以上尺寸时隐藏
-// hidden-xl-only - 当视口在 xl 尺寸时隐藏
 import 'element-plus/theme-chalk/display.css'
 
 import { useRouter } from 'vue-router'
-
-// eslint-disable-next-line import/no-unresolved
-import Example2 from './Adding.html?raw'
-import Example from './Example.md'
-/** 将资源引入为字符串
- * 资源可以使用 ?raw 后缀声明作为字符串引入
- * vite官网地址：https://vitejs.cn/guide/assets.html#explicit-url-imports
- */
-// eslint-disable-next-line import/no-unresolved
-import mdExample from './Example.md?raw'
-
-console.log('房志梅')
-console.log(mdExample)
 
 const $router = useRouter()
 function jumpDetail() {

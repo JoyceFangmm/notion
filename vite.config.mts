@@ -42,7 +42,7 @@ export default defineConfig(({ mode, command }) => {
       vue({
         include: [/\.vue$/, /\.md$/],
       }),
-      Markdown({}),
+      Markdown({ headEnabled: true }),
       ...pluginList,
       legacyPlugin({
         targets: ['defaults', 'ie >= 11', 'chrome >= 50'], // 需要兼容的目标列表，可以设置多个；

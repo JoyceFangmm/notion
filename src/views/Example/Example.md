@@ -1,4 +1,6 @@
+
 # Example
+
 
 date: 2024/03/21
 slug: adding-http-response-headers-to-a-netlify-static-website
@@ -6,6 +8,16 @@ status: Published
 tags: Jekyll, Website
 summary: Eros vel condimentum elementum, ipsum ex ultricies neque, et consequat risus neque quis felis. Praesent ut lectus hendrerit sem eleifend cursus. Nunc eget pulvinar nisi. Duis vel orci nec mauris lacinia rutrum.
 type: Post
+
+
+
+
+---
+title: My Cool App
+meta:
+  - name: description
+    content: Hello World
+---
 
 
 ---
@@ -39,7 +51,7 @@ tags:
 
 ## 2.1、图片
 
-![Google_2015_logo.svg.png](./Example/Google_2015_logo.svg.png)
+![Google_2015_logo.svg.png](./Google_2015_logo.svg.png)
 
 ### 标题2.1.1
 

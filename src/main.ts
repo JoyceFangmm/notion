@@ -1,5 +1,6 @@
 import './assets/styles/main.css'
 
+import { createHead } from '@unhead/vue'
 import { createApp } from 'vue'
 import VueLazyload from 'vue-lazyload'
 
@@ -20,6 +21,9 @@ app.use(VueLazyload, {
     },
   },
 })
+
+const head = createHead()
+app.use(head)
 
 // 错误跟踪
 app.config.errorHandler

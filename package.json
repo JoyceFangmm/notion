@@ -34,6 +34,7 @@
     "@types/js-cookie": "^3.0.6",
     "@types/jsonp": "^0.2.3",
     "@types/node": "^20.11.20",
+    "@unhead/vue": "^1.8.20",
     "@vitejs/plugin-legacy": "^4.1.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vue/eslint-config-prettier": "^9.0.0",

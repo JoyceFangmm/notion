@@ -26,7 +26,14 @@ const routes: RouteRecordRaw[] = [
 ]
 
 // 注意：以下仅测试环境有效！！
-const demoRoutes: RouteRecordRaw[] = []
+const demoRoutes: RouteRecordRaw[] = [
+  {
+    path: '/example',
+    name: 'example',
+    component: () => import(/* webpackChunkName: "example" */ '@/views/Example/Example.vue'),
+    meta: { title: 'example', keepAlive: true },
+  },
+]
 
 let routesAll = routes
 if (process.env.NODE_ENV == 'development' || process.env.VITE_BUILD_MODE == 'qa') {
