@@ -1,39 +1,80 @@
-# Adding HTTP response headers to a Netlify static website
+# Example
 
-date: 2021/03/25
+date: 2024/03/21
 slug: adding-http-response-headers-to-a-netlify-static-website
 status: Published
 tags: Jekyll, Website
 summary: Eros vel condimentum elementum, ipsum ex ultricies neque, et consequat risus neque quis felis. Praesent ut lectus hendrerit sem eleifend cursus. Nunc eget pulvinar nisi. Duis vel orci nec mauris lacinia rutrum.
 type: Post
 
+
+---
+
+title: node.js学习笔记
+date: 2019-09-29 01:07:10
+tags:
+
+- node.js
+
+---
+
+# 1、标题
+
+## 1.1、表格
+
+| 学号 | 名字 | 性别 |
+| --- | --- | --- |
+| 1 | 张三 | 男 |
+| 2 | 李四 | 女 |
+
+### 1.1.1、文字内容长短
+
+内容1-段内容
+
+内容2-长内容：我的身份萨芬发顺丰萨法沙发沙发上开发撒发家史副科级阿是咖啡机阿达是开发机阿萨达会计法卡萨代发手打开发机阿卡拉手打飞机卡拉手打飞机啊索拉卡水电费加快速度荆防颗粒萨达剪发卡拉萨的饭卡手打飞机刷卡老大首付款啦适得府君书打开。
+
+# 2、表情
+
+🥰
+
+## 2.1、图片
+
+![Google_2015_logo.svg.png](./Example/Google_2015_logo.svg.png)
+
+### 标题2.1.1
+
 Lorem ipsum dolor **amet** tousled ~~viral~~ art party *blue* bottle single-origin coffee cardigan, selvage man braid helvetica. Banh mi taxidermy meditation microdosing. Selvage cornhole YOLO, small batch vexillologist raclette VHS prism sustainable 8-bit ugh semiotics letterpress disrupt pop-up. Celiac shabby chic ugh, jianbing whatever kitsch tattooed edison bulb kogi irony etsy.
 
+# 标题3
+
+## 标题3.1
+
+### 3.1.1、各种符号内容
+
+> 1、测试
+2、测试
+> 
 - 测试
-
+    
     # 表
-
+    
 - [ ]  1、测试
 - [x]  2、内容
 
 结果
 
 - 终于
-
+    
     终于1
-
+    
     终于2
-
+    
 
 结果2
 
 结果3
 
-## Important Stuff
-
-Franzen polaroid hammock iceland blue bottle woke disrupt tilde kale chips raw denim ramps vaporware before they sold out irony. Narwhal vaporware offal shaman celiac kinfolk activated charcoal salvia lomo irony readymade normcore. Yr activated charcoal kombucha, man braid whatever biodiesel hella crucifix adaptogen bicycle rights small batch skateboard mixtape. Hot chicken sustainable green juice 90’s. Ennui kickstarter hella pug, meggings man bun shaman messenger bag. Chambray adaptogen kombucha pug affogato, kogi green juice distillery ugh banh mi.
-
-## Code Block
+### 3.1.2、代码
 
 ```jsx
 const BLOG = {
@@ -62,12 +103,8 @@ const BLOG = {
 module.exports = BLOG
 ```
 
-VHS roof party waistcoat cold-pressed, street art wolf master cleanse affogato franzen. Shaman iceland pour-over intelligentsia typewriter tilde, pitchfork copper mug. Wayfarers kickstarter adaptogen vinyl beard kombucha. Organic pinterest master cleanse, mixtape fam gentrify lo-fi kogi.
+### 3.1.3、数学公式
 
 ## Latex
 
 $E=mc^2$
-
-Salvia blue bottle fanny pack mlkshk normcore YOLO viral umami four dollar toast skateboard. Chambray taxidermy slow-carb street art chartreuse. Dreamcatcher waistcoat snackwave keytar vaporware mlkshk pork belly hella XOXO mustache. Tattooed semiotics edison bulb, disrupt polaroid craft beer vape enamel pin bespoke flannel letterpress brooklyn subway tile copper mug. Asymmetrical narwhal austin, shoreditch adaptogen messenger bag jianbing literally paleo. Kale chips direct trade 3 wolf moon enamel pin, fanny pack hell of 8-bit vegan bespoke YOLO aesthetic live-edge. Retro succulents before they sold out whatever bushwick.
-
-Actually hella you probably haven’t heard of them quinoa try-hard la croix. Street art schlitz actually hell of pour-over air plant. Post-ironic franzen brunch mumblecore readymade. Food truck photo booth polaroid, gochujang vegan street art yr before they sold out man bun. Tilde selfies chia pitchfork everyday carry post-ironic mumblecore sartorial VHS master cleanse activated charcoal biodiesel williamsburg cronut jean shorts. Poutine helvetica keffiyeh butcher pop-up.
