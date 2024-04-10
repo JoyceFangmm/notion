@@ -1,0 +1,689 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Experiment</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="761d327f-244f-47ec-b245-c92594564c66" class="page sans"><header><h1 class="page-title">Experiment</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>date</th><td><time>@2021/03/13</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>slug</th><td>experiment</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>status</th><td><span class="selected-value select-value-color-red">Published</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>tags</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>summary</th><td>About me</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>type</th><td><span class="selected-value select-value-color-orange">Page</span></td></tr></tbody></table></header><div class="page-body"><div id="ca8fd883-252e-4cf8-b524-9930cf599008" class="column-list"></div><p id="ce9a233c-0ff6-428f-a53a-59c1e2bc5ba5" class="">
+</p><div id="69efeb0a-c6c6-4049-9f6f-5f3249383b21" class="column-list"><div id="d06d4175-c7a3-4ccb-9f8b-5fd540ced345" style="width:43.75%" class="column"><figure id="020049f4-897c-4434-b8c3-b2b6fe9739b6" class="image"><a href="Experiment%20761d327f244f47ecb245c92594564c66/CS20260_edit_small.jpg"><img style="width:513px" src="Experiment%20761d327f244f47ecb245c92594564c66/CS20260_edit_small.jpg"/></a></figure></div><div id="a3b3de03-8b56-44ac-a559-b2a9ad857432" style="width:56.25%" class="column"><p id="018fbdb8-5c12-4893-842b-0e242eb0d463" class="">A Minimalist, Person who believe in</p><p id="72910990-ed9c-446a-b363-881b798a5ebf" class=""><a href="http://figma.com/@clu">Open Design</a>, <a href="https://github.com/designedbyclu">Open Source</a>. </p><p id="696e29f8-5564-426d-b42e-624ec64d58f5" class="">Daily Leading <a href="https://ifreegroup.design/">Design</a> &amp; Growth Team <a href="https://www.ifreegroup.com/">@iFREEGROUP</a></p><p id="9780d863-f25c-42f4-afd5-db42ee2d58f5" class="">
+</p><p id="758bb6a0-e865-4977-9da4-3767a213e41b" class="">As Product Designer crafting Product on Weekend. Participant on few comunities and projects like</p><p id="87e9822b-da8f-4262-996c-f3a67f878d7a" class=""><a href="https://friends.figma.com/guangzhou/">Friends of Figma, China</a>, <a href="https://notion.cx/">Notion Chinese Community</a>, Editor @ <a href="https://anyway.fm/news.php">Anyway.News</a> .</p><h2 id="5dac25c9-a13e-4f44-88b8-df2ca09f3b7f" class="">Designing the Invisible,</h2><h2 id="2f343c81-80c2-476c-abfd-65ccb5538c49" class="">Believe in Less.</h2><h2 id="7403e05c-7524-4182-b8e8-f46e1df9c37c" class="">Coffee Lover at @ <a href="https://instagram.com/hideandseekcoffee_">hideandseek </a></h2><p id="20d963f1-acbe-4371-bb4d-a26678752396" class="">
+</p><p id="b6248c00-cac4-4255-9e8b-7b117f245dba" class="">
+</p><p id="4e894155-61c8-472b-9fb8-edf19f007df4" class="">
+</p><p id="7d651277-dab8-417b-add4-1cb9e1337233" class="">
+</p></div></div><h1 id="7253fc64-951c-4d63-9274-377ecc5d22a3" class="">Talks</h1><h1 id="14e2388d-dd36-40fc-8579-1d9ede9a77c8" class="block-color-gray">2021</h1><h2 id="3ff77107-4d8f-426b-8d3f-2abfa3fe1646" class="">Collaboration &amp; Handoff</h2><p id="c26fe3a8-fe56-4d05-a9da-4e5f1d40f84b" class="block-color-blue">Friends of Figma x Tencent</p><p id="b42a0c7c-3a58-439e-b896-fdff038210a0" class="block-color-gray">- APR 2021</p><h1 id="65173382-7c95-47a0-820d-159dfc9b4e64" class="block-color-gray">2020</h1><h2 id="24389200-c3e3-4602-b103-933f80a9edbe" class="">最高效的协作工具</h2><p id="bb8aea49-a99c-409e-815b-c5002d8b4fed" class="block-color-blue">@ iFREEGROUP</p><p id="7bb5086f-07ca-4101-adde-c4f678179882" class="block-color-gray">JUN 2020</p><h2 id="cb3c824c-75c0-48f7-870d-951828892879" class="">Figma 未来工作流</h2><p id="009d15ab-a571-40b4-a68e-07078b850ff2" class="block-color-blue">@ 香蕉研究社</p><p id="a85fb406-22db-4dcf-92a8-6c5da27d0b9d" class="block-color-gray">- APR 2020 </p><h1 id="c256722b-b1c8-4156-8510-e5d811e78c33" class="block-color-gray">2019</h1><h2 id="cb55eae8-6f0c-4b04-9726-640958e6080a" class="">Figma Meetup 深圳站</h2><p id="adb3842d-68c8-41ae-9a70-2ce224eead4a" class="block-color-blue">Design &amp; Manage at Scale with Figma</p><p id="64dc8ae0-ba8c-4e53-a8ec-8798d1566d18" class="block-color-gray">- SEP 2019</p><h1 id="41ccf1e6-e26f-40e0-9ecc-5ac049761a25" class="block-color-gray">2018</h1><h2 id="5c66d48d-93ef-4caa-a6f1-ed55852fadf7" class="">Introducing Figma </h2><p id="71a4c90b-315c-4a00-a1a3-dcc5e152f624" class="block-color-blue">Next Design Tool Designer must know</p><p id="bf4915a2-78ae-4fe4-8f8e-f5516b15b30f" class="block-color-gray">- AUG 2018</p><h2 id="aee1fcd0-5ccd-4ae9-a719-6de4e0918aa8" class="">Designer Shouldn&#x27;t Work alone</h2><p id="b3d28e99-21eb-4951-ba14-9f0d3eea36ca" class="block-color-blue">Speech about product design process have to work closely with others roles.</p><p id="b06d9d3a-9603-4d59-8b80-7f57e79a6612" class="block-color-gray">- SEP 2019</p><h1 id="3bbe760b-5bcf-4ebb-a425-0813aba28433" class="block-color-gray">2016</h1><h2 id="9ac6e87b-1971-43e3-97e4-8097f36f9a0f" class="">B&amp;D 品牌与形象设计改变消费者印象</h2><p id="a1c61a37-9d48-4265-b252-56310f94b674" class="block-color-gray">- MAR 2016</p><hr id="4f42817e-b764-4c3b-80cb-c9bb6136dc9d"/><h1 id="cd493938-7499-422e-9270-6f8db687200f" class="">Podcasts</h1><h2 id="ac067bff-a889-4ba8-9415-a8d2436f9c73" class="">枫言枫语：来黑胶俱乐部喝酒聊天</h2><p id="679bb6e8-0fd4-488d-966c-1358b7f8df70" class="block-color-gray">- FEB 2021</p><ul id="275de489-4967-4bae-b293-3f4de98bdbd6" class="toggle"><li><details open=""><summary>Spotify</summary><figure id="a4fc2356-4475-48ef-b30b-aff6845d2c15"><div class="source"><a href="https://open.spotify.com/embed-podcast/episode/7LrmYHXF6nRLaf5BbI5Gd1?theme=0&amp;amp;t=0">https://open.spotify.com/embed-podcast/episode/7LrmYHXF6nRLaf5BbI5Gd1?theme=0&amp;amp;t=0</a></div></figure><p id="6f34bf20-d075-4655-9a9f-d6f18a3e3408" class="">
+</p></details></li></ul><ul id="9ddb7671-b196-4bde-96ed-2f2f3ff33103" class="toggle"><li><details open=""><summary>Apple Podcast</summary><figure id="62c0673b-e1f6-42b6-85f8-f42344528629"><a href="https://podcasts.apple.com/us/podcast/%E6%9E%AB%E8%A8%80%E6%9E%AB%E8%AF%AD/id1069600190?i=1000508868117" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">‎枫言枫语: Vol. 34 来黑胶俱乐部喝酒聊天啊！ on Apple Podcasts</div><div class="bookmark-description">缘起于我(Justin)有天在家听黑胶的时候，一时兴起在某俱乐部直播，跟大家一起分享唱片，于是想到不如邀请一两好友一起到俱乐部分享一下自己与黑胶的故事，顺便还能钓钓看有没有大鱼来给我们科普一下。没想到大家约好录音直播的晚上，鱼塘就消失了，真是令人哭笑不得😂。 但是我们四人还是非常兴奋地聊了两个小时，互相分享了自己珍藏的唱片，即便没有俱乐部直播连麦，我们也还是收获了很多。尤其是当大家通过耳机用全损音质互相分享音乐的时候，那种 Clu 形容的&quot;拼命去抓住歌曲要表达的东西&quot;的感觉真的很赞。 所以本期节目就让我们和嘉宾 Oscar, Clu 一起走进仪式感满满的黑胶俱乐部吧！ P.S. 本期分享的内容很多所以 Show Notes 会比较长，如果你也有想要跟大家一起分享的音乐，欢迎在收听的平台留言哦 话题征集 欢迎各位听众朋友们通过以下方式联系我们： 填写听众反馈表单 也可发送邮件到 hi@fyfy.fm 时间轴 01:08 又是一期特别的节目 03:33 喝点什么才配黑胶呢 05:02 是什么契机让你入坑黑胶的 14:18 大家都在哪里买唱片的 26:33 旅行时如何带唱片回来 34:10 现代歌手中你最期望谁出黑胶唱片 42:26 由 Oscar 分享第一首歌 46:52 黑胶专辑编排的魅力 51:46 在设计上印象深刻的黑胶唱片 58:34 ... Continue reading →The post Vol. 34 来黑胶俱乐部喝酒聊天啊！ first appeared on 枫言枫语.</div></div><div class="bookmark-href"><img src="https://podcasts.apple.com/favicon.ico" class="icon bookmark-icon"/>https://podcasts.apple.com/us/podcast/%E6%9E%AB%E8%A8%80%E6%9E%AB%E8%AF%AD/id1069600190?i=1000508868117</div></div><img src="https://is1-ssl.mzstatic.com/image/thumb/Podcasts113/v4/7a/ef/be/7aefbe9d-bb5e-17f3-6df3-23cdbc0791ee/mza_3410337588270925581.png/1200x630wp.png" class="bookmark-image"/></a></figure></details></li></ul><h2 id="d4d22dce-3054-433d-9ede-cda21a2233c6" class="">枫言枫语：疫情之下：谈谈远程办公</h2><p id="7f3f150e-4a36-4d4f-8d10-96d0cb372e61" class="block-color-gray">- FEB 2020</p><ul id="357a9dc5-f2ce-4f37-9ad1-3605b5975e1b" class="toggle"><li><details open=""><summary>Spotify</summary><figure id="8ccd3b89-dac1-4073-ba21-050ece1254a8"><div class="source"><a href="https://open.spotify.com/embed/episode/2yYl3cW1Hue3cgXpAUzJFh?t=0">https://open.spotify.com/embed/episode/2yYl3cW1Hue3cgXpAUzJFh?t=0</a></div></figure></details></li></ul><h2 id="e98a230b-7290-48eb-aee2-326eaecbcf17" class="">枫言枫语：用咖啡交朋友 </h2><p id="f7a72b5e-64f4-40b5-8312-2269baf9a5a5" class="block-color-gray">- SEP 2018</p><ul id="4a9a0d60-74e6-4557-ab07-e37bf63a08a4" class="toggle"><li><details open=""><summary>Spotify</summary><figure id="e50e8520-9b76-4976-a87e-49a643245f05"><div class="source"><a href="https://open.spotify.com/embed/episode/5IMLOYzQ1oDzX7YV1snFRp?t=0">https://open.spotify.com/embed/episode/5IMLOYzQ1oDzX7YV1snFRp?t=0</a></div></figure></details></li></ul><p id="2fe3df73-cc53-48a4-90d1-5ac4fb67e71a" class="">
+</p><hr id="f9cbd8c8-6f34-4476-95cc-37503fdf3451"/><div id="c929e501-31bd-48a2-a4bc-cb2881e8f78c" class="column-list"><div id="2526c4bf-3f79-4204-b384-8ecb573dacb7" style="width:50%" class="column"><h1 id="4c69ed27-4144-479c-9b39-a50df05c7d38" class="">Interview</h1><h2 id="c447ce4d-aff6-4b5f-b8d5-29f9c9c03608" class="">Printit Featured #03</h2><p id="1a245ed4-ff6f-4da7-ab5b-180bce1dc5e8" class="block-color-gray">- JUN 2014</p><h2 id="0189f79d-0504-4068-bcc3-5f6f7a8a8c17" class="">8TV NEWS visit 1000 Horses</h2><p id="d077e13a-9243-4b98-aba3-d1ede2d036eb" class="block-color-gray">- JAN 2014</p><h2 id="2adda2ff-a421-402e-8fc8-0d79902fc51b" class="">TV8 - Ride to the Occasion  China Press</h2><p id="7e335858-a0db-4747-9110-252f5ba2d9ce" class="block-color-gray">- JAN 2014</p></div><div id="5fbfe0c7-4f50-4d61-bd99-10dce7d8bc9b" style="width:50%" class="column"><h1 id="48765b19-2a23-4d0c-a5c8-ddc32977ee1e" class="">Exhibition</h1><h2 id="3321be12-7088-4cc0-9f51-1fba2dfdb716" class="">GBDO大奖启动37人海报邀请展——亚太创意设计大咖教你“玩创意”</h2><p id="ba7f1555-18d5-4f0b-bb5e-04fb8f4f6e7e" class="block-color-gray">- JUN 2018</p><figure id="7e8a3e59-4ac1-4e8f-b95b-a6d28b39229f"><a href="https://mp.weixin.qq.com/s/vNhuxxjmaMOBLd8EHJw4oA" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">GBDO大奖启动37人海报邀请展--亚太创意设计大咖教你&quot;玩创意&quot;</div><div class="bookmark-description">东方红文化策划传播有限公司创始人 广东省艺术摄影学会主席 广州创意产业协会副会长 中国包装联合会设计委员会全国委员 华一设计创始人/创意总监 中国包装联合会设计委员会常委 福建省包装联合会设计委员会主任 福建省高级工艺美术师职称评审专家库成员 历届&quot;中国之星&quot;设计奖全国评委 多届《华东大奖》创意设计大赛评委 毕业于广州美术学院视觉传达专业，长期从事设计创意工作。 2015年加入亚洲吃面公司，成为创始合伙人及担任品牌中心总经理。指导遇见小面、太二酸菜鱼、卤味研究所、火鸡研究站等品牌创建及升级。 方世坚 - 广州市义统包装制品有限公司总经理，东莞市义恒包装制品有限公司总经理，深圳市泰勒马特思科技有限公司总经理，中国南方茶叶商会副会长，广东狮子会成员。 深圳市皇狮文化创意有限公司 总经理/艺术总监 万里鹏城文化创意产业集团 董事/艺术总监 深圳市把玩文化发展有限公司 总经理 TPDA台湾包装设计协会会员 泛羽设计创意总监/创办人 统一圣娜多堡之年度品牌设计顾问 特级中国商业美术设计师 中国工业设计协会会员 《中国房地产广告年鉴》理事 四川省平面设计师协会副会长 西南交通大学研究生合作导师 西南交通大学艺术与传播学院名誉教授 四川师范大学艺术学院硕士生名誉导师 集和品牌管理顾问股份创始人、董事长 品牌基因认知理论著作人 北京著名设计师，毕业于西安美术学院设计系，北京顾鹏设计公司创办人兼创作总监，中国设计师沙龙联合发起人、学术委员，中国包装设计委员会全国委员，《中国设计年鉴》编委，首都企业形象研究会理事，国际平面社团设计协会会员，韩国又松设计学院、上海INTERMARK国际设计学院等多所设计学院客座教授，中北大学艺术学院校外艺术硕士生导师，20年的从业经验、屡获业界殊荣、有超过300项成功案例，多年公益设计交流经验、联合策划多起大展，《气韵中国》《雾霾公益海报展》《意匠集》等全国活动的联合策展人等。 广州美术学院教授、硕士研究生导师。 仼职国际品牌联盟（IBF）中国南方设计中心主任、中国包装联合会设计委员会全国委员、中国创意包装设计大赛评委、广东省茶包装设计研究室主任、《包装与设计》杂志顾问、视觉总监、广东省人力资源与社会保障厅职能技术鉴定专家等。 Grey StarEcho 广州公司总经理 具有 17+ 年丰富广告行业和实效营销经验，充满激情而有效的领导能力让客户认同，P &amp; G、 百威啤酒、 箭牌、 百丽、 葛兰素史克、 耐克、安利和蒙牛等成为这些客户的战略伙伴关系。 具有卓越的预见性与购物者营销的深入了解，可以给客户带来更好的市场成效，公司的长期战略是整合营销、数字营销和购物者体验营销，确保给客户带来更多整合的推广，从而不浪费资源。</div></div><div class="bookmark-href"><img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" class="icon bookmark-icon"/>https://mp.weixin.qq.com/s/vNhuxxjmaMOBLd8EHJw4oA</div></div><img src="http://mmbiz.qpic.cn/mmbiz_jpg/yWVeW36NnPhWCGhicic60pbcDqUjAgkwWJ2lfr9icajffHvABhMzWHV2l69W8IkRfIWbicBvqlsnWXwtZ4wYfKVE9g/0?wx_fmt=jpeg" class="bookmark-image"/></a></figure><h2 id="c1abccbd-d064-44ad-a43d-e988fdb44ccf" class="">Photo Exhibition For Travel by The Walker Magazine</h2><p id="3fc0cf68-8030-4711-b695-5ed2c2731af1" class="">@ The Ledge Art Gallery, 1 Utama, Malaysia</p><p id="4d764327-1c4f-401c-b59f-1aa35cda0261" class="block-color-gray">- AUG 2013</p><p id="5d741dec-5b1b-48df-959b-24fe8778a40d" class="">
+</p></div></div><hr id="7edf0b46-fae7-4eb4-b197-3b2d70bf06ea"/><h1 id="f9403c4b-ce40-4221-a9d4-b849a4e381a0" class="">Featured:</h1><h2 id="5bfd6546-11d7-4d98-b021-d26936a27671" class="">包装作品年鉴 2016 - 2017</h2><p id="0e863fe6-4a16-4b9f-b260-cd3eb926ee7c" class="block-color-gray">- MAR 2017</p><figure id="54356c7d-d57e-443b-af49-d796e0e92882"><a href="https://mp.weixin.qq.com/s/z5uMH7oy1Y7Oc3v98BDrqw" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">PKG.CN | 包联网：重磅！《包装作品年鉴 2016-2017 》优秀作品收录名单公布</div><div class="bookmark-description">每年仅此一版，数量有限， 极度具有珍藏价值！ 可轻松和作者互动联系 更拥有最大的商业价值 入选作品示范，了解更多敬请关注后续报道： 上海一融设计咨询有限公司 设计师胡涛／索迩创意工作室 林韶斌品牌设计有限公司 上海爱瓦设计咨询有限公司／刘忠益 上海麦丁市场营销策划有限公司 上海秦伟平面设计有限公司 上海三人行包装设计有限公司 上海三松品牌策划设计有限公司 卓更品牌咨询（上海）有限公司 BONO邦诺品牌策划设计有限公司 上海火太阳品牌设计有限公司 上海金荣翔企业发展有限公司 上海麟气创意设计有限公司 / 滕麟洲 上海墨睿文化传播有限公司 上海欧乐文化传播有限公司 上海意高广告有限公司 / 丁文星 尚观品牌策划（上海）有限公司 OIB耀美原创-念相设计中心 上海俊麟艺术设计工作室 十树品牌策划设计有限公司 合子品牌設計有限公司 埃拉迪奥企业有限公司 / 李末儿 百绘品牌设计有限公司 / 周君政 柏鑫廣告事業有限公司 東方包裝（股份）有限公司 汎羽品牌企劃設計有限公司 华奥博岩品牌創研有限公司 PackGoGo Design Service 林稚翔设计顾问有限公司 朴实创意 / 练韦秀、王子维 商瑪廣告事業有限公司 十分視覺整合設計有限公司 /</div></div><div class="bookmark-href"><img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" class="icon bookmark-icon"/>https://mp.weixin.qq.com/s/z5uMH7oy1Y7Oc3v98BDrqw</div></div><img src="http://mmbiz.qpic.cn/mmbiz_png/XTkXTcGb9MqW6ZlLL2cENcuEiafYXVTvbrz2KAXrwkAdHkAVibaVESlHsmaXeGQHUJakY3iaA9icBtGUb4MZEtjexg/s640?" class="bookmark-image"/></a></figure><p id="5f5613b4-3d7b-4bba-a384-c7e95e142f86" class="">
+</p><h2 id="4ec2751b-3eb8-40aa-9dd9-1ea7ebd34d3d" class="">Multi+ Fruit Juice - Package Inspiration</h2><p id="6e13f2e9-5b64-4806-a37b-7e193299a862" class="block-color-gray">- MAR 2016</p><figure id="667cb97c-4526-4ef3-aff3-99e41b600914"><a href="https://packageinspiration.com/multi-fruit-juice/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Multi+ Fruit Juice - Beverages - Package Inspiration</div><div class="bookmark-description">The idea of M+ (Multi+ Fruit) packaging design was using typography to design the label to show the product u.s.p. I wrote a tagline for M+, &quot;Not just a juice&quot; which telling the audience our fruit juice is just a normal fruit juice it&#x27;s come with additional benefits for customers.</div></div><div class="bookmark-href"><img src="https://packageinspiration.com/multi-fruit-juice/" class="icon bookmark-icon"/>https://packageinspiration.com/multi-fruit-juice/</div></div><img src="https://packageinspiration.com/wp-content/uploads/2016/03/MultiMAIN.jpg" class="bookmark-image"/></a></figure><p id="6519e41b-de88-42a2-8c84-fd7191b477fc" class="">
+</p><h2 id="159fba4f-bf08-403c-8622-036c45a50beb" class="">古田九路 - 原创包装</h2><p id="5c9ed963-f0a8-46f0-8762-3938f6b4d651" class="block-color-gray">- MAR 2016</p><figure id="f77d5145-d76f-47c4-867f-999b126ca29a"><a href="https://mp.weixin.qq.com/s/0hO7Pp3uk5bQfvvFgOYeug" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">【原创包装】LERBOLARIO</div><div class="bookmark-description">L&#x27;ERBOLARIO 是來自意大利第一品牌，經由草本植物實驗室的專家專業製造的產品。所有配方都是纯天然的没有化学成分的美容品牌。 ...</div></div><div class="bookmark-href"><img src="https://res.wx.qq.com/a/wx_fed/assets/res/NTI4MWU5.ico" class="icon bookmark-icon"/>https://mp.weixin.qq.com/s/0hO7Pp3uk5bQfvvFgOYeug</div></div><img src="http://mmbiz.qpic.cn/mmbiz/JbCUy77jqNkWtIumlMCMagd2XUibcJeJsapU6rImdFyjKVENsNRJMdWXGq9YFYyvnqTuRD1HQ5sgyMG9NPVrklA/0?wx_fmt=jpeg" class="bookmark-image"/></a></figure><p id="d3a14caa-a1d0-4cd6-9173-cf966c5e8437" class="">
+</p><h2 id="f7311c6c-01d1-4630-95ba-6403fb91dcd0" class="">Packaging of the World</h2><p id="8b4a2b17-a84b-43b7-a68d-b0955ce283c7" class="">L&#x27;erbolario (Concept) Design</p><p id="e4a98bd3-5f7c-4d8d-98fb-a525dc5b3834" class="block-color-gray">- MAR 2016</p><figure id="976ad66d-2363-45dd-bd55-da6a875bbd3d"><div class="source"><a href="https://codepen.io/sanjib104/pen/NWpQMrr">https://codepen.io/sanjib104/pen/NWpQMrr</a></div></figure><p id="93fec929-cda7-4627-9de1-4b4dba66c6c3" class="">123</p></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>

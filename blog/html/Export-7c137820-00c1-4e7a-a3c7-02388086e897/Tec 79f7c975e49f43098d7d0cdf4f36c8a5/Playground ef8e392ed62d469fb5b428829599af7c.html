@@ -1,0 +1,718 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Playground</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-uiBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-transparentGray { background-color: rgba(227, 226, 224, 0); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="ef8e392e-d62d-469f-b5b4-28829599af7c" class="page serif"><header><h1 class="page-title">Playground</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-date"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesDate"><path d="M3.29688 14.4561H12.7031C14.1797 14.4561 14.9453 13.6904 14.9453 12.2344V3.91504C14.9453 2.45215 14.1797 1.69336 12.7031 1.69336H3.29688C1.82031 1.69336 1.05469 2.45215 1.05469 3.91504V12.2344C1.05469 13.6973 1.82031 14.4561 3.29688 14.4561ZM3.27637 13.1162C2.70898 13.1162 2.39453 12.8154 2.39453 12.2207V5.9043C2.39453 5.30273 2.70898 5.00879 3.27637 5.00879H12.71C13.2842 5.00879 13.6055 5.30273 13.6055 5.9043V12.2207C13.6055 12.8154 13.2842 13.1162 12.71 13.1162H3.27637ZM6.68066 7.38086H7.08398C7.33008 7.38086 7.41211 7.30566 7.41211 7.05957V6.66309C7.41211 6.41699 7.33008 6.3418 7.08398 6.3418H6.68066C6.44141 6.3418 6.35938 6.41699 6.35938 6.66309V7.05957C6.35938 7.30566 6.44141 7.38086 6.68066 7.38086ZM8.92285 7.38086H9.31934C9.56543 7.38086 9.64746 7.30566 9.64746 7.05957V6.66309C9.64746 6.41699 9.56543 6.3418 9.31934 6.3418H8.92285C8.67676 6.3418 8.59473 6.41699 8.59473 6.66309V7.05957C8.59473 7.30566 8.67676 7.38086 8.92285 7.38086ZM11.1582 7.38086H11.5547C11.8008 7.38086 11.8828 7.30566 11.8828 7.05957V6.66309C11.8828 6.41699 11.8008 6.3418 11.5547 6.3418H11.1582C10.9121 6.3418 10.8301 6.41699 10.8301 6.66309V7.05957C10.8301 7.30566 10.9121 7.38086 11.1582 7.38086ZM4.44531 9.58203H4.84863C5.09473 9.58203 5.17676 9.50684 5.17676 9.26074V8.86426C5.17676 8.61816 5.09473 8.54297 4.84863 8.54297H4.44531C4.20605 8.54297 4.12402 8.61816 4.12402 8.86426V9.26074C4.12402 9.50684 4.20605 9.58203 4.44531 9.58203ZM6.68066 9.58203H7.08398C7.33008 9.58203 7.41211 9.50684 7.41211 9.26074V8.86426C7.41211 8.61816 7.33008 8.54297 7.08398 8.54297H6.68066C6.44141 8.54297 6.35938 8.61816 6.35938 8.86426V9.26074C6.35938 9.50684 6.44141 9.58203 6.68066 9.58203ZM8.92285 9.58203H9.31934C9.56543 9.58203 9.64746 9.50684 9.64746 9.26074V8.86426C9.64746 8.61816 9.56543 8.54297 9.31934 8.54297H8.92285C8.67676 8.54297 8.59473 8.61816 8.59473 8.86426V9.26074C8.59473 9.50684 8.67676 9.58203 8.92285 9.58203ZM11.1582 9.58203H11.5547C11.8008 9.58203 11.8828 9.50684 11.8828 9.26074V8.86426C11.8828 8.61816 11.8008 8.54297 11.5547 8.54297H11.1582C10.9121 8.54297 10.8301 8.61816 10.8301 8.86426V9.26074C10.8301 9.50684 10.9121 9.58203 11.1582 9.58203ZM4.44531 11.7832H4.84863C5.09473 11.7832 5.17676 11.708 5.17676 11.4619V11.0654C5.17676 10.8193 5.09473 10.7441 4.84863 10.7441H4.44531C4.20605 10.7441 4.12402 10.8193 4.12402 11.0654V11.4619C4.12402 11.708 4.20605 11.7832 4.44531 11.7832ZM6.68066 11.7832H7.08398C7.33008 11.7832 7.41211 11.708 7.41211 11.4619V11.0654C7.41211 10.8193 7.33008 10.7441 7.08398 10.7441H6.68066C6.44141 10.7441 6.35938 10.8193 6.35938 11.0654V11.4619C6.35938 11.708 6.44141 11.7832 6.68066 11.7832ZM8.92285 11.7832H9.31934C9.56543 11.7832 9.64746 11.708 9.64746 11.4619V11.0654C9.64746 10.8193 9.56543 10.7441 9.31934 10.7441H8.92285C8.67676 10.7441 8.59473 10.8193 8.59473 11.0654V11.4619C8.59473 11.708 8.67676 11.7832 8.92285 11.7832Z"></path></svg></span>date</th><td><time>@2021/03/11 5:00 AM (GMT+8) → 2021/03/20 7:00 AM (GMT+8)</time></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>slug</th><td>playground</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>status</th><td><span class="selected-value select-value-color-red">Published</span></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>tags</th><td></td></tr><tr class="property-row property-row-text"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesText"><path d="M1.56738 3.25879H14.4258C14.7676 3.25879 15.0479 2.97852 15.0479 2.63672C15.0479 2.29492 14.7744 2.02148 14.4258 2.02148H1.56738C1.21875 2.02148 0.952148 2.29492 0.952148 2.63672C0.952148 2.97852 1.22559 3.25879 1.56738 3.25879ZM1.56738 6.84082H14.4258C14.7676 6.84082 15.0479 6.56055 15.0479 6.21875C15.0479 5.87695 14.7744 5.60352 14.4258 5.60352H1.56738C1.21875 5.60352 0.952148 5.87695 0.952148 6.21875C0.952148 6.56055 1.22559 6.84082 1.56738 6.84082ZM1.56738 10.4229H14.4258C14.7676 10.4229 15.0479 10.1426 15.0479 9.80078C15.0479 9.45898 14.7744 9.18555 14.4258 9.18555H1.56738C1.21875 9.18555 0.952148 9.45898 0.952148 9.80078C0.952148 10.1426 1.22559 10.4229 1.56738 10.4229ZM1.56738 14.0049H8.75879C9.10059 14.0049 9.38086 13.7246 9.38086 13.3828C9.38086 13.041 9.10742 12.7676 8.75879 12.7676H1.56738C1.21875 12.7676 0.952148 13.041 0.952148 13.3828C0.952148 13.7246 1.22559 14.0049 1.56738 14.0049Z"></path></svg></span>summary</th><td>THIS IS MY PLAYGROUND</td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg role="graphics-symbol" viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>type</th><td><span class="selected-value select-value-color-orange">Page</span></td></tr></tbody></table></header><div class="page-body"><nav id="d155e5dd-af30-4cdf-8ee2-4379dfccdd3a" class="block-color-gray table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a76a52a3-4afc-41e5-ac89-b6b2b38a0d6a"><strong>Design your own gallery showcase:</strong></a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#0c8825ea-0d5e-4bfd-8e76-8d100450e375">Embrace your imagination</a></div></nav><figure id="73df6980-645c-4eaf-9d30-96137b520be9" class="image"><a href="https://images.unsplash.com/photo-1602345553478-740db58ab250?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1357&amp;q=80"><img style="width:1104px" src="https://images.unsplash.com/photo-1602345553478-740db58ab250?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1357&amp;q=80"/></a></figure><div id="46ce23c7-d90d-4044-8f44-77018f449373" class="column-list"><div id="6615bc1a-e5af-4a32-87d5-14f03e9fee15" style="width:50%" class="column"><p id="c778ac6e-019d-4b29-b115-242fb841a4de" class="">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse vulputate urna at ante iaculis semper. Praesent eget purus eget quam mollis posuere. Nulla a arcu lacus. Sed vitae arcu vulputate, semper nisl a, finibus nunc. Quisque placerat elit id ultrices venenatis. Aenean fermentum lorem finibus sapien mattis suscipit. Nulla malesuada est eu porta commodo. Proin id ipsum sed est volutpat ultricies ut eu nunc. Mauris auctor nisi ut erat auctor, ac suscipit magna porta. Ut quis nibh faucibus, viverra leo sed, dignissim lacus. Fusce id porta odio, et finibus lacus. Maecenas justo justo, viverra in lectus tempor, eleifend commodo dolor.</p><figure id="3c293db5-f66c-4768-979d-5664aa5df917" class="image"><a href="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><p id="cc66ab25-3950-4781-b8fa-2674ea8d4861" class=""><mark class="highlight-orange"><strong>tincidunt</strong></mark><strong> · </strong><mark class="highlight-yellow"><strong>malesuada</strong></mark><strong> · </strong><mark class="highlight-teal"><strong>ullamcorper</strong></mark><strong> · </strong><mark class="highlight-purple"><strong>Donec</strong></mark><strong> · </strong><mark class="highlight-pink"><strong>bibendum</strong></mark></p></div><div id="12470882-ab2e-4c6b-bb72-a948e9e25859" style="width:50%" class="column"><p id="768ac009-3407-425e-8c9a-542bf690fe47" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><p id="39157b26-b186-4c6b-b472-44bf1944bca0" class="">Donec rutrum fringilla lorem, a pretium ex pulvinar nec. Suspendisse consectetur aliquet mauris, eu rutrum lectus lobortis sit amet. Sed urna orci, congue at ligula quis, porta tincidunt metus. Praesent quis enim sit amet enim rhoncus interdum. Ut in sodales sapien, bibendum euismod ligula. Duis libero mauris, varius sed sapien quis, scelerisque pulvinar velit. Aliquam aliquet porta felis in laoreet. Duis convallis sagittis magna, ac mattis lectus accumsan a. Quisque pretium tortor at convallis malesuada. Vivamus semper augue non nisi maximus, in accumsan leo elementum. Pellentesque eleifend in velit non volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae;</p><figure id="2234c9e3-ad4a-4d6a-8755-9bd825bc4b0d" class="image"><a href="https://images.unsplash.com/photo-1610830554426-f78b1ae49460?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1610830554426-f78b1ae49460?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div></div><p id="91b8cd28-e398-4284-a643-47d506bd613d" class="">Morbi lobortis enim magna, a pellentesque arcu gravida at. Vivamus odio ligula, varius in mi vitae, faucibus gravida purus. Donec interdum eu diam ut condimentum. Sed magna purus, hendrerit id libero id, maximus gravida elit. In facilisis, neque vel interdum sagittis, ligula eros tempus neque, sit amet imperdiet odio risus a est. Pellentesque bibendum bibendum magna, et vulputate lacus malesuada vitae. Donec consectetur eleifend justo, sit amet sodales enim pharetra varius. Donec vel purus vitae libero congue bibendum ut eget sem. Maecenas sit amet mi at nisl pellentesque finibus eget ut magna. Nulla facilisi. Nunc in lorem aliquam, congue metus et, ultricies tortor. Maecenas nibh magna, tincidunt sed ullamcorper et, sollicitudin sit amet metus. Etiam eget fringilla massa. In hac habitasse platea dictumst. Integer malesuada porta mauris sed pellentesque. Curabitur tempus nisi vitae metus convallis, sed ullamcorper ipsum iaculis.1️⃣</p><blockquote id="9c0f4db4-d332-401c-9d66-b089e1b14db0" class="">Sollicitudin sit amet metus. Etiam eget fringilla massa. In hac habitasse platea dictumst. Integer malesuada porta mauris sed pellentesque. Curabitur tempus nisi vitae metus convallis, sed ullamcorper ipsum iaculis.</blockquote><hr id="b4e3ec50-f0d2-492b-afec-d96360c13fdd"/><p id="655dc270-d49c-48bb-824f-027e6823319f" class="">Pellentesque cursus justo sed arcu maximus hendrerit. Donec non convallis nunc, sed posuere nibh. Fusce a eros viverra ante maximus commodo vel pulvinar nulla. Aenean sed magna velit. Ut erat est, posuere vestibulum cursus sed, feugiat et arcu. </p><p id="4eb9e23a-14de-4edb-987e-096ee612ce52" class="">
+</p><ul id="edf5088f-b58d-4aa0-8e64-7a4a0ea512bc" class="bulleted-list"><li style="list-style-type:disc">Vivamus porta velit vitae dui placerat tincidunt. </li></ul><ul id="31de176a-19bf-41e0-9f7f-070c4bf594c3" class="bulleted-list"><li style="list-style-type:disc">Cras vehicula tellus nec eros ultricies, ac pharetra risus malesuada. </li></ul><ul id="51df4028-4965-4cec-8f1b-9a7ee976adc3" class="bulleted-list"><li style="list-style-type:disc">Donec sed aliquam sapien, tincidunt tristique neque. </li></ul><ul id="38bddc3f-587b-4442-8fa2-0754228c2432" class="bulleted-list"><li style="list-style-type:disc">Praesent id venenatis elit. Sed eget varius ligula. </li></ul><p id="cb033600-e85a-45f3-a8de-eaddefe2179e" class="">
+</p><p id="76d6eaf3-9434-45d0-9001-5127b82ae222" class="">Nunc tincidunt et quam ut tincidunt. Integer bibendum ullamcorper ante. Donec facilisis ornare neque id tincidunt. Proin condimentum sem at neque bibendum, ac dictum nisl pulvinar.</p><p id="cc501bd9-e89a-4775-8504-3442c66eb170" class="">
+</p><p id="487c3bf9-eab2-4d59-a44d-94a5cafc21a2" class="">
+</p><figure id="d7618007-7c25-46f4-a7d3-9da672ed3a0e"><div class="source"><a href="https://www.youtube.com/watch?v=gl47mpGwb6M">https://www.youtube.com/watch?v=gl47mpGwb6M</a></div></figure><p id="4b579335-eb0e-4629-8781-4506096fe505" class="">
+</p><p id="312b3c4b-8aba-4b82-b15e-b19a7f812625" class="">Morbi lobortis enim magna, a pellentesque arcu gravida at. Vivamus odio ligula, varius in mi vitae, faucibus gravida purus. Donec interdum eu diam ut condimentum. Sed magna purus, hendrerit id libero id, maximus gravida elit. In facilisis, neque vel interdum sagittis, ligula eros tempus neque, sit amet imperdiet odio risus a est. Pellentesque bibendum bibendum magna, et vulputate lacus malesuada vitae. Donec consectetur eleifend justo, sit amet sodales enim pharetra varius. Donec vel purus vitae libero congue bibendum ut eget sem. Maecenas sit amet mi at nisl pellentesque finibus eget ut magna. Nulla facilisi. Nunc in lorem aliquam, congue metus et, ultricies tortor. Maecenas nibh magna, tincidunt sed ullamcorper et, sollicitudin sit amet metus. Etiam eget fringilla massa. In hac habitasse platea dictumst. Integer malesuada porta mauris sed pellentesque. Curabitur tempus nisi vitae metus convallis, sed ullamcorper ipsum iaculis.</p><p id="c3e17540-d9d7-4cc4-8ef8-56bb6a9e13dc" class="">
+</p><p id="ad6d45f4-a8de-458b-a35e-e939e6d11c68" class="block-color-blue"><strong>Code Block example: </strong></p><script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js" integrity="sha512-7Z9J3l1+EYfeaPKcGXu3MS/7T+w19WtKQY/n+xzmw4hZhJ9tyYmcUS+4QqAlzhicE5LAfMQSF3iFTK9bQdTxXg==" crossorigin="anonymous" referrerPolicy="no-referrer"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" integrity="sha512-tN7Ec6zAFaVSG3TpNAKtk4DOHNpSwKHxxrsiw4GHKESGPs5njn/0sMCUMl2svV4wo4BK/rCP7juYz+zx+l6oeQ==" crossorigin="anonymous" referrerPolicy="no-referrer"/><pre id="502ffbeb-01fb-4256-bd9a-e111ec06762b" class="code"><code class="language-HTML">&lt;html&gt;
+	&lt;head&gt;
+		&lt;title&gt; Hello Nobelium! &lt;/title&gt; 
+	&lt;/head&gt; 
+&lt;/html&gt;</code></pre><p id="3a9b5abc-f481-439e-a133-09f7728b0953" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="244a4fa5-68f1-4618-8bb9-72b4914567b3"><div style="font-size:1.5em"><span class="icon">👋</span></div><div style="width:100%">Design and Develop with No Code.</div></figure><h1 id="a76a52a3-4afc-41e5-ac89-b6b2b38a0d6a" class=""><strong>Design your own gallery showcase:</strong></h1><div id="c8b38505-e491-4bc6-86be-496f04e549ea" class="column-list"><div id="dbfa177d-8f91-4066-a57f-b69d4ecb5a72" style="width:33.333333333333336%" class="column"><figure id="3b21418e-8e60-4854-b6b0-a3d55f3be8c5" class="image"><a href="https://images.unsplash.com/photo-1563209578-777423f2780d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1563209578-777423f2780d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a><figcaption>Photo by <a href="https://unsplash.com/@thexclu">@CLU</a></figcaption></figure><p id="b7d07320-deef-4ad4-b52e-e751f0b59599" class="">
+</p></div><div id="c28e1843-b0b2-4690-8dfd-2a537a144b15" style="width:33.333333333333336%" class="column"><figure id="498a1b6f-9644-4c46-ba8c-c422e6175660" class="image"><a href="https://images.unsplash.com/photo-1563209598-226eccab387d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1563209598-226eccab387d?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a><figcaption>Photo by <a href="https://unsplash.com/@thexclu">@CLU</a></figcaption></figure></div><div id="388fce7b-bdfc-41d7-98e4-6dcd50d427de" style="width:33.33333333333333%" class="column"><figure id="2d44cbbb-38c6-4312-a055-03cefad85d41" class="image"><a href="https://images.unsplash.com/photo-1563209619-e2ae06ab3074?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1563209619-e2ae06ab3074?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a><figcaption>Photo by <a href="https://unsplash.com/@thexclu">@CLU</a></figcaption></figure><p id="5318cf50-fdf8-4129-87c7-abb090cb378f" class="">
+</p></div></div><div id="1736a5d6-c927-4725-a076-3677d499c94f" class="column-list"><div id="bf106bfd-eb03-4098-a1ee-45c61e1b1a25" style="width:25%" class="column"><hr id="1b6d5ef0-e910-4999-a812-8aa125cdf026"/><p id="5c28a155-24af-4cf0-a6ac-adc3b5289899" class="">
+</p><h1 id="0c8825ea-0d5e-4bfd-8e76-8d100450e375" class="">Embrace your imagination</h1></div><div id="eed61c8c-e31b-4ea3-9b9c-cf56b91a30ab" style="width:41.66666666666667%" class="column"><p id="27864f12-3e19-4ede-a0f8-549bb0cf19cf" class="">
+</p></div><div id="7e30d33f-bcb8-4705-9496-2baf3e60ac58" style="width:33.33333333333333%" class="column"><p id="81321a77-3f12-4923-bc20-98c6e495c3f0" class="">
+</p><p id="13cf8f27-5d40-401b-9fe0-5fbe7fc1fc51" class="">with any kind of layout</p></div></div><p id="9ff5251c-e509-4323-b2e8-72c20ce35c17" class="">
+</p><p id="d4f4f957-b167-4737-ae1a-e853e4672b87" class="">
+</p><div id="ba18e836-6379-4208-85d6-786e5ead9ecf" class="column-list"><div id="679b1b27-35e7-4605-8c1b-2dda1dc8822f" style="width:43.75%" class="column"><figure id="48fc3ec2-99ca-4aaa-afe1-666184aa41d9" class="image"><a href="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled.png"><img style="width:1267px" src="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled.png"/></a></figure><p id="acec6d42-a0d0-47f0-ae84-5d7c25ca8ba3" class="">Morbi lobortis enim magna, a pellentesque arcu gravida at. Vivamus odio ligula, varius in mi vitae, faucibus gravida purus. Donec interdum eu diam ut condimentum. Sed magna purus, hendrerit id libero id, maximus gravida elit. In facilisis, neque vel interdum sagittis, ligula eros tempus neque, sit amet imperdiet odio risus a est. Pellentesque bibendum bibendum magna, et vulputate lacus malesuada vitae. Donec consectetur eleifend justo, sit amet sodales enim pharetra varius. Donec vel purus vitae libero congue bibendum ut eget sem. Maecenas sit amet mi at nisl pellentesque finibus eget ut magna.</p></div><div id="588a3fcf-6152-4f44-a9ab-3378ad2f9cb3" style="width:56.25%" class="column"><figure id="c8410e6b-39d2-4cf8-aafc-e79527e58c60" class="image"><a href="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled%201.png"><img style="width:675px" src="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled%201.png"/></a></figure></div></div><p id="83dea83c-ec9a-4215-8222-e5304dce225f" class="">
+</p><div id="696dfcad-4a35-4aee-a1d0-a86b0f6d8bdb" class="column-list"><div id="b2b6b474-59ba-4ade-af0f-fe2df5506fb2" style="width:68.75%" class="column"><figure id="190239bb-c85e-4c87-b9a0-28df2efcb052" class="image"><a href="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled%202.png"><img style="width:432px" src="Playground%20ef8e392ed62d469fb5b428829599af7c/Untitled%202.png"/></a></figure></div><div id="b2778f9d-8991-4cfa-9a4c-fcde1e854f67" style="width:31.25%" class="column"><figure id="d2bb191f-60ae-4bc5-a5cc-ac6478424a49" class="image"><a href="https://images.unsplash.com/photo-1588312092852-5a32a4c45737?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80"><img style="width:288px" src="https://images.unsplash.com/photo-1588312092852-5a32a4c45737?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80"/></a></figure><p id="0e8c325a-4f0a-4f98-a3fc-e20f28604b7a" class=""><em>In facilisis, neque vel interdum sagittis,</em> ligula eros tempus neque, sit amet <del>imperdiet odio risus a est. Pellentesque</del> bibendum bibendum magna, et vulputate lacus malesuada vitae. Donec consectetur eleifend justo, sit amet sodales enim pharetra varius. Donec vel purus vitae libero congue bibendum ut eget sem. Maecenas sit amet mi at nisl pellentesque finibus eget ut magna.</p></div></div><div id="5e5aaa67-8da5-4af2-b187-db02f788e4d9" class="column-list"><div id="7b2c14b0-400f-4931-9d30-a3b50dfab193" style="width:43.75%" class="column"><figure id="aac60602-2fd4-40ed-8b68-4ea5e4c56d2b" class="image"><a href="https://images.unsplash.com/photo-1564503868236-059dc49688b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80"><img style="width:384px" src="https://images.unsplash.com/photo-1564503868236-059dc49688b7?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=1267&amp;q=80"/></a></figure><p id="07f4947c-93f5-4999-b42f-2221c31f6ec2" class="">Photo by <a href="https://twitter.com/designedbyclu">CLU</a></p><p id="3910f805-63a0-4b2b-9d6e-bac28232ac64" class="">
+</p><figure id="6928ee87-3eba-4dce-b624-afa1218703ff" class="image"><a href="https://images.unsplash.com/photo-1563209469-54a3f516bf2f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=676&amp;q=80"><img style="width:432px" src="https://images.unsplash.com/photo-1563209469-54a3f516bf2f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=676&amp;q=80"/></a></figure><p id="4d7dd34e-fc3d-4c54-bb77-2cca77490a8d" class="">
+</p><p id="c93c9b6b-e4ae-4387-9f92-98a53f6a8e2c" class="">MAX- Column</p><p id="11a62cfa-71b6-4aef-99e2-7fd428b5fbbc" class="">
+</p></div><div id="4bd24851-7175-44d2-8e2e-f946f2c779a7" style="width:56.25%" class="column"><figure id="3660de80-9243-4cf4-b217-0cad582a7123" class="image"><a href="https://images.unsplash.com/photo-1575107000940-6bbe2c704c1d?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80"><img style="width:432px" src="https://images.unsplash.com/photo-1575107000940-6bbe2c704c1d?ixlib=rb-1.2.1&amp;ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&amp;auto=format&amp;fit=crop&amp;w=675&amp;q=80"/></a></figure><p id="014984f2-ae9b-4d20-88e3-dbd2ef01994c" class="block-color-yellow_background"><strong>Location at: </strong></p><figure id="a4d67c27-95bc-4e00-8211-7dbddc60bd4b"><div class="source"><a href="https://www.google.com/maps/place/DDP/@37.5668451,127.007578,17z/data=!3m1!4b1!4m5!3m4!1s0x357ca33ce520aedd:0x32046d779f5d8a9b!8m2!3d37.5668409!4d127.009772">https://www.google.com/maps/place/DDP/@37.5668451,127.007578,17z/data=!3m1!4b1!4m5!3m4!1s0x357ca33ce520aedd:0x32046d779f5d8a9b!8m2!3d37.5668409!4d127.009772</a></div></figure><p id="42e10bc5-c95c-40fa-9564-799e3866f723" class="">
+</p></div></div><p id="7532ec11-096e-4e89-beab-80aea4af024d" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><div id="77656ab6-3331-4359-b58d-382ae2dc1007" class="column-list"><div id="4df38fc9-37fd-4380-bb4d-50915d750dc6" style="width:10.000000000000002%" class="column"><p id="9471e605-23d6-47b6-8355-1b2caf6d483a" class="">Donec rutrum fringilla lorem, a pretium ex pulvinar nec. Suspendisse consectetur aliquet mauris, eu rutrum lectus lobortis sit amet. Sed urna orci, congue at ligula quis, porta tincidunt metus. Praesent quis enim sit amet enim rhoncus interdum. Ut in sodales sapien, bibendum euismod ligula. Duis libero mauris, varius sed sapien quis, scelerisque pulvinar velit. Aliquam aliquet </p></div><div id="bc62d914-5930-403e-a451-b20347afce5d" style="width:10.000000000000002%" class="column"><p id="5b86dc93-234b-467b-9109-beb1fa85b4e5" class="">Donec rutrum fringilla lorem, a pretium ex pulvinar nec. Suspendisse consectetur aliquet mauris, eu rutrum lectus lobortis sit amet. Sed urna orci, congue at ligula quis, porta tincidunt metus. Praesent quis enim sit amet enim rhoncus interdum. Ut in sodales sapien, bibendum euismod ligula. Duis libero mauris, varius sed sapien quis, scelerisque pulvinar velit. Aliquam aliquet </p></div><div id="388353e7-731e-4730-9448-26e666db45b9" style="width:10.000000000000002%" class="column"><p id="183a2aff-d446-45e1-a96d-a101fca087ae" class="">Donec rutrum fringilla lorem, a pretium ex pulvinar nec. Suspendisse </p><figure id="6fafd13d-7cc1-4377-8bca-ccf36cb4f2e6" class="image"><a href="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1553356084-58ef4a67b2a7?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><p id="d472538a-2523-4285-b6bd-fda31951c74c" class=""> eu rutrum lectus lobortis sit amet. Sed urna orci, congue at ligula quis, porta tincidunt metus. Praesent quis enim sit amet enim rhoncus interdum. Ut in sodales sapien, bibendum euismod ligula. Duis libero mauris, varius sed sapien quis, scelerisque pulvinar velit. </p><p id="39dd2d3d-f6db-4fa2-b0bb-f0179597303e" class="">
+</p></div><div id="8f758365-927b-4a93-bcc7-1b7a8e7a34b6" style="width:10%" class="column"><p id="20c8164f-da66-40d5-8770-0f8735f57b6b" class="">Donec rutrum fringilla lorem, a pretium ex pulvinar nec. Suspendisse consectetur aliquet mauris, eu rutrum lectus lobortis sit amet. Sed urna orci, congue at ligula quis, porta tincidunt metus. Praesent quis enim sit amet enim rhoncus interdum. Ut in sodales sapien, bibendum euismod ligula. Duis libero mauris, varius sed sapien quis, seleifend </p></div><div id="be6f0da3-3add-4a39-ad63-6b60e6beadb2" style="width:10.000000000000004%" class="column"><p id="50ec4382-e73d-4add-a8db-3e46c68fffef" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><figure id="36e5b78f-dcba-4cd7-a340-37297dfc9e19" class="image"><a href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="a56db813-13cc-405b-b521-02992f5650ed" style="width:10%" class="column"><figure id="7dc5a308-c52b-4dee-b1f0-0c80210c3ef1" class="image"><a href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><p id="c2a994f5-b224-4acc-8398-32adb66bd7d7" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p></div><div id="680eb8b3-4b44-4c5d-a337-6e1b3b37fe8b" style="width:10%" class="column"><p id="e91ce6c0-a09c-4119-8dbe-bade9f8868ad" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><figure id="9ef2c64c-fb43-4d8b-ac65-d8d2869a7cbf" class="image"><a href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure></div><div id="bb195551-0924-4923-80da-9c6681424faf" style="width:10%" class="column"><p id="e2eac4b6-2761-4127-93a2-e6d15a67604c" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><figure id="ecc9eea3-50e2-4fc7-a720-9e2f9dad34e2" class="image"><a href="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-1.2.1&amp;q=85&amp;fm=jpg&amp;crop=entropy&amp;cs=srgb"/></a></figure><p id="897b74c9-8db3-4768-b8dd-0b28168e1ca0" class="">
+</p><p id="13eafd34-6004-4447-86f1-3c56fd3ef59f" class="">
+</p><p id="164fe497-aaf4-47d6-910d-bf81a82b6407" class="">
+</p><p id="185bb6ec-6930-479b-811d-dad760393422" class="">
+</p><p id="711ffc03-f8a4-4107-a0f6-e7c4b2e791b7" class="">
+</p><p id="8a69ce81-bb4f-4c32-8873-adadb6c1117e" class="">Thoughts</p></div><div id="8f4722c5-6263-454f-86d4-8188f63eaa26" style="width:9.999999999999998%" class="column"><p id="e3655c8e-d37b-441b-9d26-7874fdb2d94e" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p></div><div id="b471afdb-ce00-42af-a9ba-3b3f0c5d12ec" style="width:10%" class="column"><p id="006e4a66-f577-4c21-b983-5d3c43682305" class="">Ut at tortor sapien. Interdum et malesuada fames ac ante ipsum primis in faucibus. Cras consectetur lectus in erat luctus bibendum. Aenean vitae rutrum justo. Morbi a pellentesque orci. Ut posuere maximus justo ac aliquam. Suspendisse potenti. Aenean sed massa id sapien maximus efficitur.</p><p id="07797dc4-c459-42e4-b9b9-ac9d6255a322" class="">
+</p><p id="d1a08a94-d6c8-4675-92db-8d2063f62b3f" class="">
+</p><p id="d3f2bd35-ba33-4613-a691-61cb479f690f" class="">
+</p><p id="1763ad05-7616-43d1-8357-13cb6be15a3f" class="">
+</p><p id="fdfc5f0f-dda9-49e8-ac10-cae06f139dc0" class="">
+</p><p id="2c28fb59-da7f-4b0d-aed5-4ecd32e09200" class="">
+</p><p id="49f8da6b-736f-4cd8-b3ca-26a639a28811" class="">
+</p><p id="672f37f3-5790-41d6-8efd-c9c437abe4ce" class="">
+</p><p id="fe9b791b-2a04-4439-88a8-cb2fb046bae7" class="">
+</p><p id="ff5cc1a5-f9aa-446e-be8e-cf58ea770e8c" class="">
+</p><p id="b4b1ae46-4203-4dfe-8b80-c0b84b8609b8" class="">Imagine</p></div></div><p id="29914fc4-0b82-4da8-8e9a-56bbf769d29a" class="">
+</p><div id="cf1a2db2-b0f5-466d-8395-fb2921f9d200" class="column-list"><div id="3227f1f6-1abe-4b16-b03c-3c61fadb04fe" style="width:25%" class="column"><blockquote id="253305c4-cc33-47d8-aa78-5a3a101c0d3e" class="">The only limitation of possibility is your imagination</blockquote></div><div id="c41f11d7-3ed8-44b6-a3ff-a6637ebe68bf" style="width:25%" class="column"><p id="1c898592-d73b-4bef-80a1-4c2b598f17a9" class=""> </p><p id="663d9024-03a1-48f2-83c1-8442771c7418" class="">
+</p></div><div id="539e4daa-d901-4bb2-aa19-88150e6856ad" style="width:25%" class="column"><p id="52502393-a25c-41d8-baa2-bf3f93450321" class="">imagine... </p></div><div id="afefbf03-f59d-4fb4-a31d-eba0e2fc1e8f" style="width:25%" class="column"><p id="d7f582e6-7965-4428-b9bb-7ce47bfad014" class="">imagine... </p></div></div></div></article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
