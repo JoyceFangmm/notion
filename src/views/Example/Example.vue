@@ -5,7 +5,8 @@
         <div class="grid-content">
           <!-- <div v-html="Example2"></div> -->
           <!-- <Example /> -->
-          <Test />
+          <!-- <Test /> -->
+          <component :is="markdownComponents" />
         </div>
       </el-col>
       <el-col :xs="24" :sm="24" :md="6" :lg="6" class="hidden-sm-and-down">
@@ -36,11 +37,19 @@
 import 'element-plus/theme-chalk/display.css'
 
 import { useHead } from '@unhead/vue'
-import { nextTick } from 'vue'
+import { defineAsyncComponent, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 
-import Test from '../../../Export-be59cefb-caa3-4a90-bbd4-49f3d960000d/NOBELIUM Template 79f7c975e49f43098d7d0cdf4f36c8a5/About，H难过。 f6c7acd2fabd488194e550ddc24eef58.md'
-// import Test from '../../../Export-be59cefb-caa3-4a90-bbd4-49f3d960000d/NOBELIUM Template 79f7c975e49f43098d7d0cdf4f36c8a5/Experiment 761d327f244f47ecb245c92594564c66.md'
+import blogData from '../../api/blogData'
+blogData.init()
+const path = blogData.allData[2].pages[0].path
+console.log(path)
+
+// const path =
+//   '../../../blog/Export-51317f2f-8a40-4ba9-b7eb-d0704b8181e0/Life ffa2022abf62464dbd187b46e72c263a/Life2-About，H难过。 4b73f874ee4d433dac44b2800e0f6d71.md'
+
+const markdownComponents = defineAsyncComponent(() => import(path))
+
 // eslint-disable-next-line import/no-unresolved
 import Example2 from './Example.html?raw'
 import Example from './Example.md'
@@ -52,9 +61,9 @@ import Example from './Example.md'
 import mdExample from './Example.md?raw'
 nextTick(() => {
   const mdBody = document.querySelector('.markdown-body') as any
-  console.log('房志梅-3')
-  console.log(mdBody)
-  console.log(JSON.stringify(mdBody))
+  // console.log('房志梅-3')
+  // console.log(mdBody)
+  // console.log(JSON.stringify(mdBody))
 
   const container = mdBody
 
@@ -80,25 +89,25 @@ nextTick(() => {
 })
 
 const newmdExample = mdExample.replace(/date:.*\nslug:.*\nstatus:.*\ntags:.*\nsummary:.*\ntype:.*\n\n---\n/, '')
-console.log('房志梅-2')
-console.log(newmdExample)
+// console.log('房志梅-2')
+// console.log(newmdExample)
 
 useHead({
   title: '我是新标题',
   meta: [{ name: 'description', content: () => '我是描述，中国，joyce' }],
   titleTemplate: 'My Site - %s',
 })
-console.log('房志梅-1')
-console.log(Example)
-console.log('房志梅')
+// console.log('房志梅-1')
+// console.log(Example)
+// console.log('房志梅')
 
 const dom = document.createElement('div')
 dom.innerHTML = Example2
-console.log(dom)
+// console.log(dom)
 
 // const table = dom.getElementsByClassName('properties')[0] as any
 const table = dom.querySelector('.properties') as any
-console.log(table)
+// console.log(table)
 // console.log(table[0])
 for (let i = 0; i < table.rows.length; i++) {
   // 获取当前行
@@ -110,7 +119,7 @@ for (let i = 0; i < table.rows.length; i++) {
     const cell = row.cells[j]
 
     // 输出单元格内容
-    console.log(cell.innerHTML)
+    // console.log(cell.innerHTML)
   }
 }
 

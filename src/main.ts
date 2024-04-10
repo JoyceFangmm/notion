@@ -6,8 +6,11 @@ import VueLazyload from 'vue-lazyload'
 
 import { app as cacheApp } from '@/hooks'
 
+import blogData from './api/blogData'
 import App from './App.vue'
 import router from './router'
+
+blogData.init()
 
 const app = createApp(App)
 
