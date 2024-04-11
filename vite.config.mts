@@ -8,6 +8,7 @@ import Components from 'unplugin-vue-components/vite'
 import Markdown from 'unplugin-vue-markdown/vite'
 import { fileURLToPath, URL } from 'url'
 import { defineConfig, loadEnv } from 'vite'
+import Pages from 'vite-plugin-pages'
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -53,6 +54,10 @@ export default defineConfig(({ mode, command }) => {
       }),
       Components({
         resolvers: [ElementPlusResolver()],
+      }),
+      Pages({
+        dirs: 'src/pages/markdown/Export-51317f2f-8a40-4ba9-b7eb-d0704b8181e0',
+        extensions: ['vue', 'md'],
       }),
     ],
     resolve: {

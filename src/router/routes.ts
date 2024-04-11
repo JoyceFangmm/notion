@@ -1,5 +1,10 @@
 import type { RouteRecordRaw } from 'vue-router'
 
+// eslint-disable-next-line import/no-unresolved
+import pageList from '~pages'
+
+console.log('pageList-->', pageList)
+
 const routes: RouteRecordRaw[] = [
   {
     path: '/:pathMatch(.*)*',
@@ -23,6 +28,12 @@ const routes: RouteRecordRaw[] = [
     component: () => import(/* webpackChunkName: "detail" */ '@/views/Detail.vue'),
     meta: { title: 'detail', keepAlive: true },
   },
+  {
+    path: '/blog',
+    name: 'blog',
+    component: () => import(/* webpackChunkName: "blog" */ '@/views/Blog/Blog.vue'),
+    meta: { title: 'blog', keepAlive: true },
+  },
 ]
 
 // 注意：以下仅测试环境有效！！
@@ -39,5 +50,9 @@ let routesAll = routes
 if (process.env.NODE_ENV == 'development' || process.env.VITE_BUILD_MODE == 'qa') {
   routesAll = routes.concat(demoRoutes)
 }
+
+routesAll = routesAll.concat(pageList)
+
+console.log(routesAll)
 
 export default routesAll

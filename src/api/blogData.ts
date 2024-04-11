@@ -42,7 +42,7 @@ class BlogData {
             if (innerUlDom) {
               const innerADom = innerUlDom.querySelector('a')
               const page = this.findCategory(innerADom.textContent)
-              page['path'] = '../../../blog/markdown/' + this.mdDirectory + '/' + innerADom.getAttribute('href')
+              page['path'] = '/blog/markdown/' + this.mdDirectory + '/' + innerADom.getAttribute('href')
               pages.push(page)
             }
           })

@@ -1,5 +1,7 @@
 /// <reference types="vite/client" />
 
+/// <reference types="vite-plugin-pages/client" />
+
 // https://cn.vuejs.org/guide/typescript/overview.html#definecomponent
 // 查看defineComponent()章节
 declare module '*.vue' {
