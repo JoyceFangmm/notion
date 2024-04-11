@@ -1,1 +1,0 @@
-import{d as t,h as n,o as e,c as s,i as r,r as c,j as _,f as l,k as p,l as i}from"./index-ce1f5ebe.js";const m=l("div",null,"2024-04-11 8:25",-1),k=t({__name:"Blog",setup(d){const a=n.allData[2].pages[0].path,o=p(()=>i(()=>import(a),[]));return(u,f)=>(e(),s("div",null,[m,(e(),r(c(_(o))))]))}});export{k as default};
