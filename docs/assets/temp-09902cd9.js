@@ -1,0 +1,1 @@
+import{u as o}from"./vue.f36acd1f-08ea8913.js";import{c as s,o as a,f as e}from"./index-6d397f80.js";const n={class:"markdown-body"},c=e("h1",null,"测试-最外层只是一个page",-1),r=e("p",null,"空白内容",-1),_=[c,r],f=[],k={__name:"temp",setup(m,{expose:t}){return t({frontmatter:{meta:[]}}),o({meta:[]}),(l,h)=>(a(),s("div",n,_))}};export{k as default,f as meta};
