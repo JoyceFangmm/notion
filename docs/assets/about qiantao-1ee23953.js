@@ -1,0 +1,1 @@
+import{u as e}from"./vue.f36acd1f-31c660ef.js";import{c as o,o as a,f as s}from"./index-b4458f7b.js";const n={class:"markdown-body"},c=s("h1",null,"测试目录嵌套",-1),r=[c],h=[],l={__name:"about qiantao",setup(_,{expose:t}){return t({frontmatter:{meta:[]}}),e({meta:[]}),(i,p)=>(a(),o("div",n,r))}};export{l as default,h as meta};
