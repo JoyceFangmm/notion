@@ -68,7 +68,12 @@ export default defineConfig(({ mode, command }) => {
     server: {
       host: '0.0.0.0',
       port: parseInt(env.VITE_PORT),
-      proxy: {},
+      proxy: {
+        '/notion/': {
+          target: 'https://joycefangmm.github.io',
+          changeOrigin: true,
+        },
+      },
     },
     esbuild: {
       drop: env.VITE_DROP_CONSOLE === 'true' ? ['console', 'debugger'] : [],

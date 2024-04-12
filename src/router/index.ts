@@ -20,27 +20,7 @@ router.beforeEach((to, from, next) => {
   console.log(`router_before-->${String(from.name)}-->${String(to.name)}`)
   document.title = (to.meta.title || '模版') as string
 
-  const query = { ...to.query }
-  let replaceFlag = false
-  if (!to.query['VNK']) {
-    if (
-      to.path === from.path &&
-      isObjEqual({ ...to.query, ['VNK']: null }, { ...from.query, ['VNK']: null }) &&
-      from.query['VNK']
-    ) {
-      query['VNK'] = from.query['VNK']
-    } else {
-      query['VNK'] = util.genKey()
-    }
-    replaceFlag = true
-  }
-
-  // 如果参数不存在VNK，需要加入，否则可能导致拉取缓存代码
-  if (replaceFlag) {
-    next({ name: to.name, params: to.params, query, replace: !from.query['VNK'] })
-  } else {
-    next()
-  }
+  next()
 })
 
 router.afterEach((to, from, failure) => {
