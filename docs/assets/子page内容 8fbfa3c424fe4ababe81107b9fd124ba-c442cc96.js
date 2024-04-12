@@ -1,1 +1,0 @@
-import{u as a}from"./vue.f36acd1f-5318cb1d.js";import{c as o,o as s,f as e}from"./index-4fa854c1.js";const c={class:"markdown-body"},n=e("h1",null,"子page内容",-1),r=e("p",null,"我是子page内容",-1),_=[n,r],u=[],b={__name:"子page内容 8fbfa3c424fe4ababe81107b9fd124ba",setup(d,{expose:t}){return t({frontmatter:{meta:[]}}),a({meta:[]}),(f,l)=>(s(),o("div",c,_))}};export{b as default,u as meta};
