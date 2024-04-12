@@ -1,1 +1,0 @@
-import{d as t,u as a,o as n,c as s,g as c,f as r}from"./index-d164f344.js";const p=t({__name:"Detail",setup(u){const e=a();function o(){e.push({name:"home"})}return(m,i)=>(n(),s("div",null,[c(" detail 2024-03-13 17:00 "),r("div",{onClick:o},"跳转到Home页面")]))}});export{p as default};
