@@ -462,6 +462,17 @@ a:hover {
   color: #7c2d12;
 }
 
+#article-container,
+#post-info,
+.post-copyright {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#article-container img {
+  -webkit-user-drag: none;
+}
+
 #footer {
   background: transparent;
   color: var(--joyce-ink-soft);
